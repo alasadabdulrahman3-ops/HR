@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ABOOD.MyFont">
+      <class name="TestHR.MyFont">
         <methods>
-          <include name="AddEmployee"/>
+          <include name="Informationa"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- ABOOD.MyFont -->
+      </class> <!-- TestHR.MyFont -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

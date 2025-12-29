@@ -1,10 +1,7 @@
 package TestHR;
-
-import static org.testng.Assert.ARRAY_MISMATCH_TEMPLATE;
-
 import java.time.Duration;
-
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class MyFont {
+public class MyFont extends MYData{
 
     WebDriver driver;
     String URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
@@ -84,23 +81,93 @@ String ADD = "https://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmp
     				    By.xpath("//label[text()='Employee Id']/following::input[1]")
     				);
     			employeeId.sendKeys(Keys.chord(Keys.CONTROL, "a")); // تحديد كل النص
-    				employeeId.sendKeys(Keys.DELETE);                   // مسح النص
-    				employeeId.sendKeys("151");                       // إدخال النص الجديد
+    				employeeId.sendKeys(Keys.DELETE); 
+    				employeeId.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+    				employeeId.sendKeys(Keys.DELETE);
+    				employeeId.sendKeys("988");
     				WebElement Save = driver.findElement(
     					    By.cssSelector(".oxd-button.oxd-button--medium.oxd-button--secondary.orangehrm-left-space")
     					);
-    					Save.click();
+    					Save.click();}
+    	/////////////////			
+     @Test (priority =5)
+     public void Informationa () {
+    	 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    	 JavascriptExecutor js = (JavascriptExecutor) driver;
+    	 // Other Id
+    	 WebElement otherId = wait.until(ExpectedConditions.visibilityOfElementLocated(
+    	         By.xpath("//label[text()='Other Id']/following::input[1]")));
+    	 otherId.click();
+    	 otherId.clear();
+    	 otherId.sendKeys("AHMAD123");
+
+    	 // Driver License
+    	 WebElement license = wait.until(ExpectedConditions.visibilityOfElementLocated(
+    	         By.xpath("//label[contains(text(),'Driver')]/following::input[1]")));
+    	 license.click();
+    	 license.clear();
+    	 license.sendKeys("D123456");
+
+    	 // License Expiry Date
+    	 WebElement licenseDate = wait.until(ExpectedConditions.visibilityOfElementLocated(
+    	         By.xpath("//label[contains(text(),'License Expiry Date')]/following::input[1]")));
+    	 js.executeScript("arguments[0].removeAttribute('readonly')", licenseDate); // إزالة readonly
+    	 licenseDate.click();
+    	 licenseDate.clear();
+    	 licenseDate.sendKeys("2028-12-31");
+
+    	 // Nationality Dropdown
+    	 WebElement nationality = wait.until(ExpectedConditions.elementToBeClickable(
+    	         By.xpath("//label[text()='Nationality']/following::div[contains(@class,'oxd-select-text')][1]")));
+    	 nationality.click();
+    	 WebElement jordan = wait.until(ExpectedConditions.elementToBeClickable(
+    	         By.xpath("//span[text()='Jordanian']")));
+    	 jordan.click();
+
+    	 // Marital Status Dropdown
+    	 WebElement marital = wait.until(ExpectedConditions.elementToBeClickable(
+    	         By.xpath("//label[text()='Marital Status']/following::div[contains(@class,'oxd-select-text')][1]")));
+    	 marital.click();
+    	 WebElement single = wait.until(ExpectedConditions.elementToBeClickable(
+    	         By.xpath("//span[text()='Single']")));
+    	 single.click();
+
+    	 // Date of Birth
+    	 WebElement dob = wait.until(ExpectedConditions.visibilityOfElementLocated(
+    	         By.xpath("//label[text()='Date of Birth']/following::input[1]")));
+    	 js.executeScript("arguments[0].removeAttribute('readonly')", dob); // إزالة readonly
+    	 dob.click();
+    	 dob.clear();
+    	 dob.sendKeys("2000-05-10");
+
+    	 // Male Radio Button
+    	 WebElement male = wait.until(ExpectedConditions.elementToBeClickable(
+    	         By.xpath("//label[text()='Male']")));
+    	 js.executeScript("arguments[0].click();", male); // استخدم JS click لتجنب مشاكل الاختفاء
+
+    	 // Save Button
+    	 WebElement save = wait.until(ExpectedConditions.elementToBeClickable(
+    	         By.xpath("//button[.=' Save ']")));
+    	 wait.until(ExpectedConditions.elementToBeClickable(save)).click();
+    	 save.click();}
+     @Test (priority =6)
+     public void CustomFields() {
+    	// فتح القائمة
+WebElement dropdown = driver.findElement(By.xpath("//div[contains(@class,'oxd-select-text-input') and text()='-- Select --']"));
+    	 dropdown.click();
+    	 // اختيار قيمة، مثلا "A+"
+  WebElement option = driver.findElement(By.xpath("//span[text()='AB+']"));
+    	 option.click();
+    	 WebElement testField = driver.findElement(By.xpath("//label[text()='Test_Field']/following::input[1]"));
+    	 testField.sendKeys("18090");
+    	 WebElement secondSaveButton = driver.findElement(By.xpath("(//button[contains(@class,'oxd-button--secondary')])[2]"));
+    	 secondSaveButton.click();
 
 
 
-
-
-
-
-
-
-
-    	
-    }
-
+    	 
+     }
+     
+ 
+     
 }
