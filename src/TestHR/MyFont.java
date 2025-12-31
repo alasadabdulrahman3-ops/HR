@@ -1,11 +1,15 @@
 package TestHR;
+import java.io.File;
 import java.time.Duration;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
@@ -43,23 +47,7 @@ String ADD = "https://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmp
     		Pim.click();
 
     }
-    @Test (priority = 3, enabled = false )
-    public void EmployeeInformation() {
-    	
-    	WebElement inputField = driver.findElement(
-    		    By.xpath("//div[@class='oxd-autocomplete-text-input oxd-autocomplete-text-input--active']/input")
-    		);
-    		inputField.sendKeys("Abdelrhman");
-    		
-    		//
-    		WebElement employeeId = driver.findElement(
-    			    By.xpath("//label[text()='Employee Id']/following::input[1]")
-    			);
-    			employeeId.sendKeys("150");
-    		//	WebElement dropdown = driver.findElement(
-        			    By.xpath("//div[contains(@class,'oxd-select-text-input') and text()='-- Select --']");
-        	//dropdown.click();  // يفتح القائمة
-    }
+    
      @Test (priority =4)
      public void AddEmployee() {
       driver.get(ADD);
@@ -70,7 +58,7 @@ String ADD = "https://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmp
       WebElement MiddleName = driver.findElement(
     		    By.cssSelector(".oxd-input.oxd-input--active.orangehrm-middlename")
     		);
-    		MiddleName.sendKeys("Aqab");
+    		MiddleName.sendKeys("Ahmad");
 
     		WebElement lastName = driver.findElement(
     			    By.name("lastName")
@@ -84,90 +72,158 @@ String ADD = "https://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmp
     				employeeId.sendKeys(Keys.DELETE); 
     				employeeId.sendKeys(Keys.chord(Keys.CONTROL, "a"));
     				employeeId.sendKeys(Keys.DELETE);
-    				employeeId.sendKeys("988");
+    				employeeId.sendKeys("86");
     				WebElement Save = driver.findElement(
     					    By.cssSelector(".oxd-button.oxd-button--medium.oxd-button--secondary.orangehrm-left-space")
     					);
+    				
     					Save.click();}
     	/////////////////			
-     @Test (priority =5)
-     public void Informationa () {
-    	 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    	 JavascriptExecutor js = (JavascriptExecutor) driver;
-    	 // Other Id
-    	 WebElement otherId = wait.until(ExpectedConditions.visibilityOfElementLocated(
-    	         By.xpath("//label[text()='Other Id']/following::input[1]")));
-    	 otherId.click();
-    	 otherId.clear();
-    	 otherId.sendKeys("AHMAD123");
+     @SuppressWarnings("unused")
+	@Test (priority =5, enabled = false )
+     public void Information() {
 
-    	 // Driver License
-    	 WebElement license = wait.until(ExpectedConditions.visibilityOfElementLocated(
-    	         By.xpath("//label[contains(text(),'Driver')]/following::input[1]")));
-    	 license.click();
-    	 license.clear();
-    	 license.sendKeys("D123456");
+    	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    	    JavascriptExecutor js = (JavascriptExecutor) driver;
+    	    Actions actions = new Actions(driver);
 
-    	 // License Expiry Date
-    	 WebElement licenseDate = wait.until(ExpectedConditions.visibilityOfElementLocated(
-    	         By.xpath("//label[contains(text(),'License Expiry Date')]/following::input[1]")));
-    	 js.executeScript("arguments[0].removeAttribute('readonly')", licenseDate); // إزالة readonly
-    	 licenseDate.click();
-    	 licenseDate.clear();
-    	 licenseDate.sendKeys("2028-12-31");
+    	    // =============== Other Id ===============
+    	    WebElement otherId = wait.until(ExpectedConditions.elementToBeClickable(
+    	            By.xpath("//label[text()='Other Id']/following::input[1]")));
+    	    otherId.click();
+    	    otherId.clear();
+    	    otherId.sendKeys("Ahmad156");
 
-    	 // Nationality Dropdown
-    	 WebElement nationality = wait.until(ExpectedConditions.elementToBeClickable(
-    	         By.xpath("//label[text()='Nationality']/following::div[contains(@class,'oxd-select-text')][1]")));
-    	 nationality.click();
-    	 WebElement jordan = wait.until(ExpectedConditions.elementToBeClickable(
-    	         By.xpath("//span[text()='Jordanian']")));
-    	 jordan.click();
+    	    // =============== Driver License ===============
+    	    WebElement license = wait.until(ExpectedConditions.elementToBeClickable(
+    	            By.xpath("//label[contains(text(),'Driver')]/following::input[1]")));
+    	    license.click();
+    	    license.clear();
+    	    license.sendKeys("A15");
 
-    	 // Marital Status Dropdown
-    	 WebElement marital = wait.until(ExpectedConditions.elementToBeClickable(
-    	         By.xpath("//label[text()='Marital Status']/following::div[contains(@class,'oxd-select-text')][1]")));
-    	 marital.click();
-    	 WebElement single = wait.until(ExpectedConditions.elementToBeClickable(
-    	         By.xpath("//span[text()='Single']")));
-    	 single.click();
+    	    // =============== License Expiry Date ===============
+    	    WebElement licenseDate = wait.until(ExpectedConditions.visibilityOfElementLocated(
+    	            By.xpath("//label[contains(text(),'License Expiry Date')]/following::input[1]")));
+    	    js.executeScript("arguments[0].removeAttribute('readonly')", licenseDate);
+    	    licenseDate.click();
+    	    licenseDate.sendKeys("2030-12-31");
 
-    	 // Date of Birth
-    	 WebElement dob = wait.until(ExpectedConditions.visibilityOfElementLocated(
-    	         By.xpath("//label[text()='Date of Birth']/following::input[1]")));
-    	 js.executeScript("arguments[0].removeAttribute('readonly')", dob); // إزالة readonly
-    	 dob.click();
-    	 dob.clear();
-    	 dob.sendKeys("2000-05-10");
+    	    // =============== Nationality Dropdown ===============
+    	    WebElement nationality = wait.until(ExpectedConditions.elementToBeClickable(
+    	            By.xpath("//label[text()='Nationality']/following::div[contains(@class,'oxd-select-text')][1]")));
+    	    nationality.click();
+    	    WebElement jordan = wait.until(ExpectedConditions.elementToBeClickable(
+    	            By.xpath("//span[text()='Jordanian']")));
+    	    jordan.click();
 
-    	 // Male Radio Button
-    	 WebElement male = wait.until(ExpectedConditions.elementToBeClickable(
-    	         By.xpath("//label[text()='Male']")));
-    	 js.executeScript("arguments[0].click();", male); // استخدم JS click لتجنب مشاكل الاختفاء
+    	    // =============== Marital Status Dropdown ===============
+    	    WebElement marital = wait.until(ExpectedConditions.elementToBeClickable(
+    	            By.xpath("//label[text()='Marital Status']/following::div[contains(@class,'oxd-select-text')][1]")));
+    	    marital.click();
+    	    WebElement single = wait.until(ExpectedConditions.elementToBeClickable(
+    	            By.xpath("//span[text()='Single']")));
+    	    single.click();
 
-    	 // Save Button
-    	 WebElement save = wait.until(ExpectedConditions.elementToBeClickable(
-    	         By.xpath("//button[.=' Save ']")));
-    	 wait.until(ExpectedConditions.elementToBeClickable(save)).click();
-    	 save.click();}
-     @Test (priority =6)
+    	    // =============== Date of Birth ===============
+    	    WebElement dob = wait.until(ExpectedConditions.visibilityOfElementLocated(
+    	            By.xpath("//label[text()='Date of Birth']/following::input[1]")));
+    	    js.executeScript("arguments[0].removeAttribute('readonly')", dob);
+    	    dob.click();
+    	    dob.sendKeys("2000-05-10");
+
+    	    // =============== Gender (Male) ===============
+    	    WebElement maleLabel = wait.until(ExpectedConditions.elementToBeClickable(
+    	            By.xpath("//label[text()='Male']")));
+    	    maleLabel.click();
+
+
+    	    // =============== Save Button ===============
+    	    WebElement save = wait.until(ExpectedConditions.visibilityOfElementLocated(
+    	            By.xpath("//button[contains(text(),'Save')]")));
+    	    js.executeScript("arguments[0].scrollIntoView(true);", save);
+    	    js.executeScript("arguments[0].click();", save); // اضغط باستخدام JS
+
+    	}
+
+     @Test (priority =6 , enabled = false)
      public void CustomFields() {
-    	// فتح القائمة
-WebElement dropdown = driver.findElement(By.xpath("//div[contains(@class,'oxd-select-text-input') and text()='-- Select --']"));
-    	 dropdown.click();
-    	 // اختيار قيمة، مثلا "A+"
-  WebElement option = driver.findElement(By.xpath("//span[text()='AB+']"));
-    	 option.click();
-    	 WebElement testField = driver.findElement(By.xpath("//label[text()='Test_Field']/following::input[1]"));
-    	 testField.sendKeys("18090");
-    	 WebElement secondSaveButton = driver.findElement(By.xpath("(//button[contains(@class,'oxd-button--secondary')])[2]"));
-    	 secondSaveButton.click();
 
+    	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    	    JavascriptExecutor js = (JavascriptExecutor) driver;
+    	    Actions actions = new Actions(driver);
 
+    	    // فتح القائمة
+    	    WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(
+    	            By.xpath("//div[contains(@class,'oxd-select-text-input') and text()='-- Select --']")));
+    	    dropdown.click();
 
-    	 
+    	    // اختيار قيمة "AB+"
+    	    WebElement option = wait.until(ExpectedConditions.elementToBeClickable(
+    	            By.xpath("//span[text()='AB+']")));
+    	    option.click();
+
+    	    // حقل Test_Field
+    	    WebElement testField = wait.until(ExpectedConditions.elementToBeClickable(
+    	            By.xpath("//label[text()='Test_Field']/following::input[1]")));
+    	    testField.click();
+    	    testField.clear();
+    	    testField.sendKeys("18090");
+
+    	    // زر Save الثاني
+    	    WebElement secondSaveButton = wait.until(ExpectedConditions.elementToBeClickable(
+    	            By.xpath("(//button[contains(@class,'oxd-button--secondary')])[2]")));
+    	    js.executeScript("arguments[0].scrollIntoView(true);", secondSaveButton);
+    	    actions.moveToElement(secondSaveButton).click().perform();
+    	}
+     
+     
+     
+
+     @Test (priority =7)
+     public void uploadAttachment(WebDriver driver) throws InterruptedException {
+    	    // زيادة مدة الانتظار لتجنب مشاكل العناصر البطيئة
+    	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+    	    // 🔹 مسار الملف داخل Downloads
+    	    String filePath = System.getProperty("user.home") + "\\Downloads\\QA.pdf";
+    	    File file = new File(filePath);
+
+    	    if (!file.exists()) {
+    	        throw new RuntimeException("❌ الملف غير موجود: " + filePath);
+    	    }
+    	    String fileName = file.getName();
+
+    	    // 1️⃣ اضغط زر Add أولاً
+    	    WebElement addBtn = wait.until(ExpectedConditions.elementToBeClickable(
+    	            By.xpath("//button[contains(.,'Add')]")
+    	    ));
+    	    addBtn.click();
+    	    System.out.println("🔹 تم الضغط على زر Add");
+
+    	    // 2️⃣ انتظر ظهور input[type='file'] ورفع الملف
+    	    WebElement fileInput = wait.until(ExpectedConditions.presenceOfElementLocated(
+    	            By.xpath("//input[@type='file']")
+    	    ));
+    	    fileInput.sendKeys(file.getAbsolutePath());
+    	    System.out.println("🔹 تم رفع الملف: " + fileName);
+
+    	    // 3️⃣ انتظر ظهور اسم الملف بعد الرفع للتأكد من نجاح العملية
+    	    wait.until(ExpectedConditions.visibilityOfElementLocated(
+    	            By.xpath("//*[contains(text(),'" + fileName + "')]")
+    	    ));
+
+    	    // 4️⃣ اضغط زر Save لإتمام رفع الملف
+    	    WebElement saveBtn = wait.until(ExpectedConditions.elementToBeClickable(
+    	            By.xpath("//button[contains(.,'Save')]")
+    	    ));
+    	    saveBtn.click();
+    	    System.out.println("✅ تم حفظ الملف بنجاح!");
+    	}
+	 
+    	
+     
      }
-     
- 
-     
-}
+
+
+    
+
