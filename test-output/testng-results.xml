@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="2" total="6" passed="3" failed="1" skipped="0">
+<testng-results ignored="3" total="8" passed="4" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-12-31T19:29:20 EET" name="Default suite" finished-at="2025-12-31T19:29:30 EET" duration-ms="10403">
+  <suite started-at="2026-01-02T20:05:58 EET" name="Default suite" finished-at="2026-01-02T20:06:26 EET" duration-ms="28378">
     <groups>
     </groups>
-    <test started-at="2025-12-31T19:29:20 EET" name="Default test" finished-at="2025-12-31T19:29:30 EET" duration-ms="10403">
+    <test started-at="2026-01-02T20:05:58 EET" name="Default test" finished-at="2026-01-02T20:06:26 EET" duration-ms="28378">
       <class name="TestHR.MyFont">
-        <test-method is-config="true" signature="setup()[pri:0, instance:TestHR.MyFont@6a78afa0]" started-at="2025-12-31T19:29:20 EET" name="setup" finished-at="2025-12-31T19:29:26 EET" duration-ms="5465" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:TestHR.MyFont@3bf7ca37]" started-at="2026-01-02T20:05:58 EET" name="setup" finished-at="2026-01-02T20:06:05 EET" duration-ms="7233" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="login()[pri:1, instance:TestHR.MyFont@6a78afa0]" started-at="2025-12-31T19:29:26 EET" name="login" finished-at="2025-12-31T19:29:26 EET" duration-ms="568" status="PASS">
+        <test-method signature="login()[pri:1, instance:TestHR.MyFont@3bf7ca37]" started-at="2026-01-02T20:06:05 EET" name="login" finished-at="2026-01-02T20:06:07 EET" duration-ms="2020" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method signature="PIM()[pri:2, instance:TestHR.MyFont@6a78afa0]" started-at="2025-12-31T19:29:26 EET" name="PIM" finished-at="2025-12-31T19:29:29 EET" duration-ms="2780" status="PASS">
+        <test-method signature="PIM()[pri:2, instance:TestHR.MyFont@3bf7ca37]" started-at="2026-01-02T20:06:07 EET" name="PIM" finished-at="2026-01-02T20:06:13 EET" duration-ms="5873" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- PIM -->
-        <test-method signature="AddEmployee()[pri:4, instance:TestHR.MyFont@6a78afa0]" started-at="2025-12-31T19:29:29 EET" name="AddEmployee" finished-at="2025-12-31T19:29:30 EET" duration-ms="1526" status="PASS">
+        <test-method signature="AddEmployee()[pri:3, instance:TestHR.MyFont@3bf7ca37]" started-at="2026-01-02T20:06:13 EET" name="AddEmployee" finished-at="2026-01-02T20:06:16 EET" duration-ms="3165" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AddEmployee -->
-        <test-method signature="uploadAttachment(org.openqa.selenium.WebDriver)[pri:7, instance:TestHR.MyFont@6a78afa0]" started-at="2025-12-31T19:29:30 EET" name="uploadAttachment" finished-at="2025-12-31T19:29:30 EET" duration-ms="0" status="FAIL">
+        <test-method signature="ContactDetails()[pri:7, instance:TestHR.MyFont@3bf7ca37]" started-at="2026-01-02T20:06:16 EET" name="ContactDetails" finished-at="2026-01-02T20:06:26 EET" duration-ms="10000" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ContactDetails -->
+        <test-method signature="fillAddress(org.openqa.selenium.WebDriver)[pri:8, instance:TestHR.MyFont@3bf7ca37]" started-at="2026-01-02T20:06:26 EET" name="fillAddress" finished-at="2026-01-02T20:06:26 EET" duration-ms="0" status="FAIL">
           <exception class="org.testng.TestNGException">
             <message>
               <![CDATA[
-Cannot inject @Test annotated Method [uploadAttachment] with [interface org.openqa.selenium.WebDriver].
+Cannot inject @Test annotated Method [fillAddress] with [interface org.openqa.selenium.WebDriver].
 For more information on native dependency injection please refer to https://testng.org/#_dependency_injection]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.testng.TestNGException: 
-Cannot inject @Test annotated Method [uploadAttachment] with [interface org.openqa.selenium.WebDriver].
+Cannot inject @Test annotated Method [fillAddress] with [interface org.openqa.selenium.WebDriver].
 For more information on native dependency injection please refer to https://testng.org/#_dependency_injection
 at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:442)
 at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:347)
@@ -66,7 +70,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           </exception> <!-- org.testng.TestNGException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- uploadAttachment -->
+        </test-method> <!-- fillAddress -->
       </class> <!-- TestHR.MyFont -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

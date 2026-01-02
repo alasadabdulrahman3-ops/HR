@@ -5,7 +5,7 @@
     <classes>
       <class name="TestHR.MyFont">
         <methods>
-          <include name="uploadAttachment"/>
+          <include name="fillAddress"/>
           <include name="setup"/>
         </methods>
       </class> <!-- TestHR.MyFont -->

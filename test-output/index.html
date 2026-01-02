@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\HP\AppData\Local\Temp\testng-eclipse-566672306\testng-customsuite.xml</span>
+                    <span>C:\Users\HP\AppData\Local\Temp\testng-eclipse-1172576275\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods, 1 failed,   3 passed</span>
+                    <span class="method-stats">5 methods, 1 failed,   4 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -103,7 +103,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="TestHR.MyFont" class="method navigator-link" hash-for-method="uploadAttachment">uploadAttachment</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="TestHR.MyFont" class="method navigator-link" hash-for-method="fillAddress">fillAddress</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -118,6 +118,11 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="TestHR.MyFont" class="method navigator-link" hash-for-method="AddEmployee">AddEmployee</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="TestHR.MyFont" class="method navigator-link" hash-for-method="ContactDetails">ContactDetails</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -150,11 +155,11 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="uploadAttachment">
-                  </a> <!-- uploadAttachment -->
-                  <span class="method-name">uploadAttachment</span>
+                  <a name="fillAddress">
+                  </a> <!-- fillAddress -->
+                  <span class="method-name">fillAddress</span>
                   <div class="stack-trace">org.testng.TestNGException: 
-Cannot inject @Test annotated Method [uploadAttachment] with [interface org.openqa.selenium.WebDriver].
+Cannot inject @Test annotated Method [fillAddress] with [interface org.openqa.selenium.WebDriver].
 For more information on native dependency injection please refer to https://testng.org/#_dependency_injection
 	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:442)
 	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:347)
@@ -204,6 +209,13 @@ For more information on native dependency injection please refer to https://test
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
+                  <a name="ContactDetails">
+                  </a> <!-- ContactDetails -->
+                  <span class="method-name">ContactDetails</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="PIM">
                   </a> <!-- PIM -->
                   <span class="method-name">PIM</span>
@@ -221,7 +233,7 @@ For more information on native dependency injection please refer to https://test
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\HP\AppData\Local\Temp\testng-eclipse-566672306\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\HP\AppData\Local\Temp\testng-eclipse-1172576275\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -270,28 +282,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'PIM')
+data.setCell(0, 1, 'ContactDetails')
 data.setCell(0, 2, 'TestHR.MyFont')
-data.setCell(0, 3, 2780);
+data.setCell(0, 3, 10000);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'AddEmployee')
+data.setCell(1, 1, 'PIM')
 data.setCell(1, 2, 'TestHR.MyFont')
-data.setCell(1, 3, 1526);
+data.setCell(1, 3, 5873);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'login')
+data.setCell(2, 1, 'AddEmployee')
 data.setCell(2, 2, 'TestHR.MyFont')
-data.setCell(2, 3, 568);
+data.setCell(2, 3, 3165);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'uploadAttachment')
+data.setCell(3, 1, 'login')
 data.setCell(3, 2, 'TestHR.MyFont')
-data.setCell(3, 3, 0);
+data.setCell(3, 3, 2020);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'fillAddress')
+data.setCell(4, 2, 'TestHR.MyFont')
+data.setCell(4, 3, 0);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 4 seconds</span>
+              <span class="suite-total-time">Total running time: 21 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -306,15 +322,17 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">2 ignored methods</span>
+            <span class="header-content">3 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
               <span class="ignored-class-name">TestHR.MyFont</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">Information</span>
-                <br/>
                 <span class="ignored-method-name">CustomFields</span>
+                <br/>
+                <span class="ignored-method-name">uploadAttachment</span>
+                <br/>
+                <span class="ignored-method-name">Information</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -333,15 +351,19 @@ return data;
               </div> <!-- configuration-test before -->
               <div class="test-method">
                 <span class="method-name">login</span>
-                <span class="method-start">5493 ms</span>
+                <span class="method-start">7286 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">PIM</span>
-                <span class="method-start">6069 ms</span>
+                <span class="method-start">9312 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">AddEmployee</span>
-                <span class="method-start">8852 ms</span>
+                <span class="method-start">15188 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">ContactDetails</span>
+                <span class="method-start">18355 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
